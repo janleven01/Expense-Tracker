@@ -1,0 +1,205 @@
+:root {
+    --bg-color: #406449;
+    --text-color: #f2f2f2;
+  }
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: antiquewhite; 
+    font-family: Arial, Helvetica, sans-serif;
+    padding-top: 2rem;
+}
+
+h2 {
+    text-align: center;
+    font-size: 2rem;
+}
+
+.main {
+    background-color: #f2f2f2;
+    padding: 1rem;
+    max-width: 400px;
+    padding: 1rem;
+    margin: 1rem auto;  
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.balance {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    border-radius: 10px;
+    padding: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    text-align: center;
+}
+.balance h4{
+    font-size: 14px;
+    padding-bottom: 5px;
+}
+.balance div:first-child{
+    flex-basis: 100%;
+    margin-bottom: 1rem;
+}
+
+.balance div:nth-child(n + 2){
+    flex-basis: 50%;
+}
+
+.balance div:first-child span{
+    font-size: 2rem;
+}
+
+.balance div:nth-child(n+2) span{
+    font-size: 1.4rem;
+}
+
+.transaction{
+    margin-top: 10px;
+}
+ul {
+    margin: 5px 0px;
+    list-style-type: none;
+}
+ul li {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    padding: 5px 5px;
+    text-transform: capitalize;
+}
+
+ul li p{
+    margin-top: 3px;
+}
+
+.action{
+    position: absolute;
+    background-color: red;
+    color: #f2f2f2;
+    right: 0;
+    display: grid;
+    height: 100%;
+    width: 30px;
+    place-items: center;
+    transform: scaleX(0);
+    transition: all 200ms;
+    transform-origin: right;
+}
+
+ul li:hover .action{
+    transform: scaleX(1);
+}
+
+.action svg {
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+}
+
+#checker {
+    text-align: center;
+    margin-bottom: 5px;
+}
+
+.addTransaction h4{
+    margin-top: 10px;
+}
+
+form{
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 10px;
+    gap: 10px;
+}
+
+form input:not(#type){
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    width: 100%;
+    margin-top: 5px;
+}
+
+form label{
+    text-transform: uppercase;
+    font-size: 12px;
+}
+
+form div:nth-child(n + 1){
+    flex-basis: 100%;
+}
+
+form div:nth-child(n + 3){
+    flex-basis: calc(50% - 5px);
+}
+
+button{
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    margin: 10px 0px;
+    border: none;
+}
+
+button:hover, button:active {
+    filter: brightness(110%);
+}
+
+.amount.expense {
+    color: indianred;
+}
+
+.amount.income {
+    color: yellowgreen;
+}
+
+input#type{
+    appearance: none;
+    position: absolute;
+}
+
+.option{
+    background: #eee;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    padding: 10px;
+    border-radius: 5px;
+    position: relative;
+}
+
+.option span{
+    width: 50%;
+    text-transform: uppercase;
+    font-size: 13px;
+    cursor: pointer;
+    z-index: 1;
+}
+
+.option::before{
+    content: "";
+    position: absolute;    
+    background-color: #fff;
+    width: calc(50% - 10px);
+    height: calc(50% + 10px);
+    left: 0;
+    top: 5px;
+    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.1);
+    transform: translateX(5px);
+    border-radius: inherit;  
+    transition: all 200ms;  
+}
+
+input#type:checked ~ .option::before{
+    left: 50%;
+}
+
+
